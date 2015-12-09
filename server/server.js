@@ -1,4 +1,6 @@
 var express = require('express');
+var path = require('path');
+var LocalStrategy = require('passport-local').Strategy;
 var app = express();
 //used to connected mongodb
 var mongoose = require('mongoose');
@@ -9,8 +11,8 @@ var session = require('client-sessions');
 //require main passport
 var passport = require('passport');
 
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 //connect to mongo db
 var mongoURL = require('./mongo_modules/mongoURL.json').url;
 mongoose.connect(mongoURL,function(err) {
@@ -24,8 +26,13 @@ mongoose.connect(mongoURL,function(err) {
 
 require('./passport/passport-local.js')(passport);
 
+app.set('port', process.env.PORT || 8888);
+app.set('views', __dirname + '../frontend');
+app.set('view engine', 'html');
+app.set('view options', { layout: false });
+
 //use middlewares for every route
-app.use(express.static('client'));
+app.use(express.static(__dirname + '/public'));
 app.use(cookieParser());
 app.use(bodyParser());
 app.use(session({'cookieName' : 'session',
@@ -34,14 +41,17 @@ app.use(session({'cookieName' : 'session',
                  'activeDuration' : 5 * 60 * 1000}));
 app.use(passport.initialize());
 app.use(passport.session());
+
+//var Account = require('./mongo_modules/user');
+
 //give app and passport router
 require('./router.js')(app,passport);
 io.on('connection', function(socket){
   require('./class')(socket,io);
 });
 //listen on port
-var port = process.env.PORT || 8888;
-server.listen(port,function(err) {
+var port = app.get('port');
+http.listen(port,function(err) {
   if(err) {
     console.log(err);
     process.exit();
