@@ -12,11 +12,11 @@ module.exports = function(passport) {
     });
   });
   passport.use('local-login', new LocalStrategy({
-    usernameField : 'email',
+    usernameField : 'username',
     passwordField : 'password'
   },
-  function(email,password,done) {
-    User.findOne({'local.email' : email}, function(err,user) {
+  function(username,password,done) {
+    User.findOne({'local.username' : username}, function(err,user) {
       if(err){
         return done(err);
       }
@@ -33,11 +33,11 @@ module.exports = function(passport) {
   }));
 
   passport.use('local-signup', new LocalStrategy({
-    usernameField : 'email',
+    usernameField : 'username',
     passwordField : 'password'
   },
-  function(email,password,done) {
-    User.findOne({'local.email' : email}, function(err, user) {
+  function(username,password,done) {
+    User.findOne({'local.username' : username}, function(err, user) {
       if(err){
         return done(err);
       }
@@ -46,7 +46,7 @@ module.exports = function(passport) {
         return done(null, false, {message : 'used user'});
       } else {
         var newUser = new User();
-        newUser.local.email = email;
+        newUser.local.username = username;
         newUser.local.password = newUser.generateHash(password);
 
         newUser.save(function(err) {
