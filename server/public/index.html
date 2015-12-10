@@ -15,6 +15,12 @@
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+
+        <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+        <script type="text/javascript" src="angular.min.js"></script>
+        <script type="text/javascript" src="angular.js"></script>
+         <script src="libs/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="router.js"></script>
     </head>
     <body>
         <div class="container">
@@ -22,11 +28,11 @@
             <h1>WebClicker<span>   CS252 Lab6</span></h1>
             </header>
             <section>       
-                <div id="container_demo" >
+                <div id="container_demo">
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
-                        <div id="login" class="animate form">
+                        <div id="login" class="animate form" ng-controller="tokenController as webClicker">
                             <form method="post" action="local/login"> 
                                 <h1>Login</h1> 
                                 <p> 
@@ -44,6 +50,9 @@
                                 <p class="login button"> 
                                     <input type="submit" value="Login" /> 
                                 </p>
+                                <script type="text/javascript">
+                                    alert({{token.tokenObj.Access_Token}});
+                                </script>
                                 <p>
                                     Not a member yet ?
                                     <a href="#toregister" class="to_register">Join us</a>

@@ -13,7 +13,18 @@ module.exports = function(app,passport){
         if(user){
           makeToken.makeToken({'id' : user.id}).then(function(token) {
             //res.status(200).send({'message' : 'OK', 'Access_Token' : token});
+            console.log("Token " + token);
             res.redirect('/homepage.html');
+
+            // angular
+            /*(function(){
+              var gem = { name: 'Azurite', price: 2.95 };
+              var app = angular.module('gemStore', []);
+              app.controller('StoreController', function() {
+                this.product = gem;
+              });
+            })();*/
+
           }).catch(function(err) {
             console.log(err);
             console.log(500);
@@ -38,12 +49,21 @@ module.exports = function(app,passport){
             //res.status(200).send({'message' : 'OK', 'Access_Token' : token});
             res.redirect('/homepage.html');
             console.log("Token " + token);
+
+            //angularjs
+            (function(){
+              var tokenStruct = { username: user.username, Access_Token: token };
+              ang.controller('tokenController', function() {
+                this.tokenObject = tokenStruct;
+              });
+            })();
+
           }).catch(function(err) {
             console.log(err);
             //res.status(500).send({'message' : 'Server err', serr' : err});
           });
         }else {
-          res.status(401).send(info);
+          res.send('<p>Wrong password or username!</p>');
           console.log(401);
         }
       }

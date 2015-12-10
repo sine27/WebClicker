@@ -2,6 +2,7 @@
 var express = require('express');
 var path = require('path');
 var LocalStrategy = require('passport-local').Strategy;
+var ang = angular.module('webClicker', [ ]);
 var app = express();
 //used to connected mongodb
 var mongoose = require('mongoose');
@@ -32,7 +33,6 @@ app.set('views', __dirname + './public');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('view options', { layout: false });
-
 
 //use middlewares for every route
 app.use(express.static(__dirname + '/public'));
