@@ -31,6 +31,8 @@ function bootstrap () {
 
     //  This instance is shared across the entire app life-cycle
     var sharedInstance = AppSingleton.getInstance();
+    // Mongo URL
+    var mongodb = "mongodb://webclicker:cs252lab6@ds061474.mongolab.com:61474/webclicker"
     //  Creating a new shared instance for winston logger
     sharedInstance.log = new (Winston.Logger)({
         transports: [

@@ -35,5 +35,26 @@ function startup() {
         resolve({ });
     });
 
+    return new Promise((resolve, reject) => {
+
+        //  Wait for connection and resolve this promise
+        //  Create connection with mongoose
+        sharedInstance.mongodb = Mongodb.MongoClient.connect(this.mongodb, function(err, db) {
+            if(err) {
+            	reject(err);
+            	sharedInstance.L.info(TAG, 'fail to connect mongodb');
+            }
+            else {
+                sharedInstance.L.info(TAG, 'connected to mongodb');
+                sharedInstance.db = db;
+
+                //  Provisions the database just in case db is a fresh install
+                Provision(db);
+                sharedInstance.L.info(TAG, 'db provisioned');
+                resolve({ });
+            }
+        });
+    });
+
 }
 export default startup;
