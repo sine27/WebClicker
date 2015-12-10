@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 lt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 lt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 lt8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8" />
+        <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
+        <br><br><br>
+        <title>WebClicker   CS252 Lab6</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="description" content="New Class" />
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />
+    </head>
+    <body>
+        <div class="container">
+        <header>
+            <h1>WebClicker<span>   CS252 Lab6</span></h1>
+        </header>
+            <section>       
+                <div id="container_demo" >
+                <a class="hiddenanchor" id="newClass"></a>
+                    <div id="wrapper">
+                        <div id="newClass" class="animate form">
+                            <form method="post" action="/class"> 
+                                <h1> Create Class </h1> 
+                                <p> 
+                                    <label for="classtitle"> Class title</label>
+                                    <input id="classtitle" name="title" required="required" type="text" placeholder="title" />
+                                </p>
+                                <p> 
+                                    <label for="classdetail"> Class detail</label>
+                                    <input id="classdetail" name="detail" required="required" type="text" placeholder="detail"/> 
+                                </p>
+        
+                                <p class="submit button"> 
+                                    <input type="submit" value="Submit"/> 
+                                </p>
+
+                                <p>  
+                                    Do not want to Create Class ?
+                                    <a href="/homepage.html" class="to_homepage"> Cancel </a>
+                                </p>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>  
+            </section>
+        </div>
+    </body>
+</html>
