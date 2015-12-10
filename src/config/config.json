@@ -13,6 +13,9 @@
             "port": 3939,
             "port_ssl": 33939
         }
+    },
+    "mongodb": {
+        "url" : "mongodb://webclicker:cs252lab6@ds061474.mongolab.com:61474/webclicker"
     }
 
 }
