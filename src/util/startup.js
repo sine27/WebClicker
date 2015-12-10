@@ -27,19 +27,19 @@ function startup() {
 
     //  This instance is shared across the entire app life-cycle
     var sharedInstance = AppSingleton.getInstance();
+    // Mongo URL
+    var mongoURL = "mongodb://webclicker:cs252lab6@ds061474.mongolab.com:61474/webclicker"
+    // mongoDB
+    var mongoose = require('mongoose');
 
-    return new Promise((resolve) => {
-
-        //  Setup routes for app
-
-        resolve({ });
-    });
+    
 
     return new Promise((resolve, reject) => {
 
         //  Wait for connection and resolve this promise
         //  Create connection with mongoose
-        sharedInstance.mongodb = Mongodb.MongoClient.connect(this.mongodb, function(err, db) {
+        // sharedInstance.mongodb = Mongodb.MongoClient.connect(this.mongodb, function(err, db) {
+        sharedInstance.mongodb = mongoose.connect(mongoURL, function(err, db) {
             if(err) {
             	reject(err);
             	sharedInstance.L.info(TAG, 'fail to connect mongodb');
