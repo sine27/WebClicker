@@ -2,23 +2,45 @@ var makeToken = require('./middlewares/maketoken.js');
 var middlewares = require('./middlewares/middlewares.js');
 
 module.exports = function(app,passport){
+
+  app.get('/', function (req, res) {
+      res.render('index', { user : req.user });
+  });
+
+  app.get('/register', function(req, res) {
+      res.render('register', { });
+  });
+
+  app.get('/local/login', function(req, res) {
+      res.render('login', { user : req.user });
+  });
+
+  app.get('/logout', function(req, res) {
+      req.logout();
+      res.redirect('/');
+  });
+
   app.post('/register',function(req,res,next) {
     passport.authenticate('local-signup',function(err,user,info) {
       if(err){
         res.status(503).send(err);
+        console.log("503");
       }else {
         if(user){
           makeToken.makeToken({'id' : user.id}).then(function(token) {
             res.status(200).send({'message' : 'OK',
                                   'Access_Token' : token});
-            res.render('homepage.html', { message: req.flash('signupMessage') });
+            res.redirect('/');
           }).catch(function(err) {
             console.log(err);
             res.status(500).send({'message' : 'Server err',
                                   'err' : err});
+            console.log("500");
           });
         }else {
           res.status(409).send(info);
+          console.log("409");
+          return res.render("register", {info: "Sorry. That username already exists. Try again."});
         }
       }
     })(req,res,next);
@@ -27,18 +49,22 @@ module.exports = function(app,passport){
     passport.authenticate('local-login',function(err,user,info) {
       if(err){
         res.status(503).send(err);
+        console.log("503");
       }else {
         if(user){
           makeToken.makeToken({'id' : user.id}).then(function(token) {
             res.status(200).send({'message' : 'OK',
                                   'Access_Token' : token});
+            res.redirect('/homepage');
           }).catch(function(err) {
             console.log(err);
             res.status(500).send({'message' : 'Server err',
                                   'err' : err});
+            console.log("500");
           });
         }else {
           res.status(401).send(info);
+          console.log("401");
         }
       }
     })(req,res,next);

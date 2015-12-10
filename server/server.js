@@ -27,9 +27,11 @@ mongoose.connect(mongoURL,function(err) {
 require('./passport/passport-local.js')(passport);
 
 app.set('port', process.env.PORT || 8888);
-app.set('views', __dirname + '../frontend');
+app.set('views', __dirname + './public');
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('view options', { layout: false });
+
 
 //use middlewares for every route
 app.use(express.static(__dirname + '/public'));
