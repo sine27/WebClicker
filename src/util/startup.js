@@ -32,8 +32,6 @@ function startup() {
     // mongoDB
     var mongoose = require('mongoose');
 
-    
-
     return new Promise((resolve, reject) => {
 
         //  Wait for connection and resolve this promise
@@ -49,7 +47,6 @@ function startup() {
                 sharedInstance.db = db;
 
                 //  Provisions the database just in case db is a fresh install
-                Provision(db);
                 sharedInstance.L.info(TAG, 'db provisioned');
                 resolve({ });
             }
