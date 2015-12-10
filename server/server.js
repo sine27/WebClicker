@@ -12,8 +12,8 @@ var session = require('client-sessions');
 //require main passport
 var passport = require('passport');
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var server = require('http').Server(app);
+var io = require('socket.io')(server);
 //connect to mongo db
 var mongoURL = require('./mongo_modules/mongoURL.json').url;
 mongoose.connect(mongoURL,function(err) {
@@ -54,7 +54,7 @@ io.on('connection', function(socket){
 });
 //listen on port
 var port = app.get('port');
-app.listen(port,function(err) {
+server.listen(port,function(err) {
   if(err) {
     console.log(err);
     process.exit();
