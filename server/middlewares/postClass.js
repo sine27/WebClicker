@@ -8,16 +8,14 @@ module.exports = {
     newClass.title = req.body.title;
     newClass.detail = req.body.detail;
     newClass.classtime = req.body.classtime;
-    newClass.activate = req.body.activate;
     newClass.save(function(err,s) {
       if(err){
-        req.reJson['message'] = 'something wrong when put into database';
-        req.reJson['err'] = err;
         res.status(500).send(req.reJson);
+        console.log("500 Create Class Successful");
       }else {
-        req.reJson['message'] = 'OK!';
-        req.reJson['class'] = thisclass;
-        res.status(200).send(req.reJson);
+        //res.status(200).send(req.reJson);
+        console.log("200 Create Class Successful");
+        res.redirect('/homepage.html');
       }
     });
 

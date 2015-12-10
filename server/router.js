@@ -49,17 +49,17 @@ module.exports = function(app,passport){
       }
     })(req,res,next);
   });
-  app.post('/class' , middlewares.verifyToken , middlewares.postClass);
-  app.get('/class' , middlewares.verifyToken , middlewares.getClass);
+  app.post('/class', middlewares.postClass);
+  app.get('/class', middlewares.getClass);
   // Get classes by date
-  app.post('/classd' , middlewares.verifyToken, middlewares.getClassByDate);
-  app.delete('/class/:classid' , middlewares.verifyToken , middlewares.checkClassid , middlewares.deleteClass);
-  app.get('/class/:classid' , middlewares.verifyToken , middlewares.checkClassid ,middlewares.getClass);
-  app.post('/class/:classid' , middlewares.verifyToken , middlewares.checkClassid ,middlewares.editClass);
-  app.get('/profile' , middlewares.verifyToken , middlewares.getProfile);
-  app.post('/profile' , middlewares.verifyToken , middlewares.editProfile);
-  app.post('/findUser' , middlewares.verifyToken , middlewares.findUser);
-  app.get('/getUserInformation/:userid' , middlewares.verifyToken ,middlewares.getUserInformation);
+  app.post('/classd' , middlewares.getClassByDate);
+  app.delete('/class/:classid', middlewares.checkClassid , middlewares.deleteClass);
+  app.get('/class/:classid', middlewares.checkClassid ,middlewares.getClass);
+  app.post('/class/:classid', middlewares.checkClassid ,middlewares.editClass);
+  app.get('/profile', middlewares.getProfile);
+  app.post('/profile', middlewares.editProfile);
+  app.post('/findUser', middlewares.findUser);
+  app.get('/getUserInformation/:userid',middlewares.getUserInformation);
   //app.post('/resetPassword' , middlewares.resetPassword);
-  app.post('/changePassword' , middlewares.verifyToken , middlewares.changePassword);
+  app.post('/changePassword', middlewares.changePassword);
 };

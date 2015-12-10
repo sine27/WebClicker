@@ -1,11 +1,12 @@
 /*eslint-env node */
 var mongoose = require('mongoose');
 
-var ClassSchema = mongoose.Schema({
+var SeesionSchema = mongoose.Schema({
   userid : String,
   title : String,
-  detail : String,
+  answer : String,
   classtime : { type : Date, "default": Date.now },
+  activate : Boolean
 });
 
-module.exports = mongoose.model('Class', ClassSchema);
+module.exports = mongoose.model('Session', ClassSchema);
