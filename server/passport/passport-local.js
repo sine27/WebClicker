@@ -1,3 +1,5 @@
+/*eslint-env node */
+/*globals err */
 var LocalStrategy   = require('passport-local').Strategy;
 var User = require('../mongo_modules/user.js');
 

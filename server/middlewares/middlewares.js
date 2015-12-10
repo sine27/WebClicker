@@ -1,3 +1,4 @@
+/*eslint-env node */
 var makeToken = require('./maketoken.js');
 var thisPostClass = require('./postClass.js').postClass;
 var thisdeleteClass = require('./deleteClass.js').deleteClass;

@@ -1,3 +1,4 @@
+/*eslint-env node */
 var User = require('../mongo_modules/user.js');
 module.exports = {
   findUser : function(req,res,next){

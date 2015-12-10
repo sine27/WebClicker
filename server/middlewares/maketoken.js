@@ -1,3 +1,4 @@
+/*eslint-env node */
 var jwt = require('jsonwebtoken');
 var key = require('./config').mykey;
 module.exports={

@@ -1,3 +1,4 @@
+/*eslint-env node */
 var Class = require('../mongo_modules/class.js');
 module.exports = {
   getAllClass : function(req,res,next) {

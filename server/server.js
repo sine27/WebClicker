@@ -1,3 +1,4 @@
+/*eslint-env node */
 var express = require('express');
 var path = require('path');
 var LocalStrategy = require('passport-local').Strategy;
@@ -26,7 +27,7 @@ mongoose.connect(mongoURL,function(err) {
 
 require('./passport/passport-local.js')(passport);
 
-app.set('port', process.env.PORT || 8888);
+app.set('port', process.env.PORT || 4000);
 app.set('views', __dirname + './public');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
@@ -53,7 +54,7 @@ io.on('connection', function(socket){
 });
 //listen on port
 var port = app.get('port');
-http.listen(port,function(err) {
+app.listen(port,function(err) {
   if(err) {
     console.log(err);
     process.exit();

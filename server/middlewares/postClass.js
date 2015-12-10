@@ -1,3 +1,5 @@
+/*eslint-env node */
+/*globals thisclass:true */
 var Class = require('../mongo_modules/class.js');
 module.exports = {
   postClass : function(req,res,next) {

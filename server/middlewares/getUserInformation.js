@@ -1,3 +1,4 @@
+/*eslint-env node */
 var User = require('../mongo_modules/profile.js');
 module.exports = {
   getUserInformation : function(req, res, next) {

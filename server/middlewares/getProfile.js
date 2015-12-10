@@ -1,3 +1,4 @@
+/*eslint-env node */
 var Profile = require('../mongo_modules/profile.js');
 module.exports = {
   getProfile : function(req,res,next) {

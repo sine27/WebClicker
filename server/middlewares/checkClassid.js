@@ -1,3 +1,4 @@
+/*eslint-env node */
 module.exports = {
   checkClassid : function(req,res,next) {
     if(req.params.classid === null){

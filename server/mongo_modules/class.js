@@ -1,10 +1,11 @@
+/*eslint-env node */
 var mongoose = require('mongoose');
 
 var ClassSchema = mongoose.Schema({
   userid : String,
   title : String,
   detail : String,
-  classtime : { type : Date, default: Date.now },
+  classtime : { type : Date, "default": Date.now },
   activate : Boolean,
 });
 
