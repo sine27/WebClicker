@@ -11,8 +11,7 @@ module.exports = {
         if(!profile){
           var newProfile = new Profile();
           newProfile.userid = req.userid;
-          newProfile.firstname = req.body.firstname;
-          newProfile.lastname = req.body.lastname;
+          newProfile.fullname = req.body.fullname;
           newProfile.usertype = req.body.usertype;
           newProfile.email = req.body.email;
           newProfile.save(function(err,thisprofile) {
@@ -20,11 +19,8 @@ module.exports = {
             res.status(200).send(req.reJson);
           });
         }else {
-          if(req.body.firstname != undefined){
-            profile.firstname = req.body.firstname;
-          }
-          if(req.body.lastname != undefined){
-            profile.lastname = req.body.lastname;
+          if(req.body.fullname != undefined){
+            profile.firstname = req.body.fullname;
           }
           if(req.body.usertype != undefined){
             profile.usertype = req.body.usertype;

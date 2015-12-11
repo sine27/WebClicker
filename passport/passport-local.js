@@ -45,6 +45,7 @@ module.exports = function(passport) {
       }
 
       if(user){
+        console.log(user);
         return done(null, false, {message : 'used user'});
       } else {
         var newUser = new User();
