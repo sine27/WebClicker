@@ -9,7 +9,7 @@
         <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">  -->
         <br><br><br>
         <title>WebClicker   CS252 Lab6</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Login and Registration" />
         <meta name="keywords" content="CS252, Lab6 :target, pseudo-class" />
         <link rel="stylesheet" type="text/css" href="css/demo.css" />
@@ -26,7 +26,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-        
+
 
 
 
@@ -38,33 +38,30 @@
             <header>
             <h1>WebClicker<span>   CS252 Lab6</span></h1>
             </header>
-            <section>       
+            <section>
                 <div id="container_demo">
                     <a class="hiddenanchor" id="toregister"></a>
                     <a class="hiddenanchor" id="tologin"></a>
                     <div id="wrapper">
                         <div id="login" class="animate form" ng-controller="loginController as index">
-                            <form method="post" action="local/login"> 
-                                <h1>Login</h1> 
-                                <p> 
+                            <form>
+                                <h1>Login</h1>
+                                <p>
                                     <label for="username" data-icon="u" > Your username </label>
                                     <input id="username" name="username" required="required" type="text" placeholder="mymail@mail.com"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="password" data-icon="p"> Your password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
                                 </p>
-                                <p class="keeplogin"> 
-                                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" /> 
+                                <p class="keeplogin">
+                                    <input type="checkbox" name="loginkeeping" id="loginkeeping" value="loginkeeping" />
                                     <label for="loginkeeping">Keep me logged in</label>
                                 </p>
-                                <p class="login button"> 
-                                    <input type="submit" onclick=checkcookie() value="Login" /> 
+                                <p class="login button">
+                                    <input type="submit" onclick="submitForm(this.form);return false;" value="Login" />
                                 </p>
-                                <script type="text/javascript">
-                                    function checkcookie() {
-                                        alert(document.cookie);
-                                    }
+                                <script src="./js/login.js">
                                 </script>
                                 <p>
                                     Not a member yet ?
@@ -74,28 +71,28 @@
                         </div>
 
                         <div id="register" class="animate form">
-                            <form method="post" action="register"> 
-                                <h1> Sign up </h1> 
-                                <p> 
+                            <form method="post" action="register">
+                                <h1> Sign up </h1>
+                                <p>
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
                                     <input id="usernamesignup" name="username" required="required" type="text" placeholder="myusername" />
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
-                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="mymail@mail.com"/> 
+                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="mymail@mail.com"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="passwordsignup" class="youpasswd" data-icon="p">Your password </label>
                                     <input id="passwordsignup" name="password" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="passwordsignup_confirm" class="youpasswd" data-icon="p">Please confirm your password </label>
                                     <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
-                                <p class="signin button"> 
-                                    <input type="submit" value="Sign up"/> 
+                                <p class="signin button">
+                                    <input type="submit" value="Sign up"/>
                                 </p>
-                                <p>  
+                                <p>
                                     Already a member ?
                                     <a href="#tologin" class="to_register"> Go and log in </a>
                                 </p>
@@ -103,7 +100,7 @@
                         </div>
 
                     </div>
-                </div>  
+                </div>
             </section>
         </div>
     </body>
