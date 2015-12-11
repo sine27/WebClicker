@@ -1,48 +1,34 @@
 {
-  "name": "WebClicker",
-  "version": "0.0.1",
-  "description": "WebClicker",
-  "directories": {
-    "test": "test"
-  },
-  "main": "lib/index.js",
-  "scripts": {
-    "start": "gulp && node .",
-    "test": "gulp && ./node_modules/.bin/mocha",
-    "posttest": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec && cat ./coverage/coverage.json | ./node_modules/codecov.io/bin/codecov.io.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
-  "author": "Siyuan Gao",
-  "license": "MIT",
-  "devDependencies": {
-    "chai": "^3.2.0",
-    "chai-as-promised": "^5.1.0",
-    "chai-spies": "^0.7.0",
-    "del": "^2.0.2",
-    "gulp": "^3.9.0",
-    "gulp-babel": "^5.2.1",
-    "gulp-bump": "^0.3.1",
-    "gulp-istanbul": "^0.10.0",
-    "gulp-jscs": "^2.0.0",
-    "gulp-jscs-stylish": "^1.1.2",
-    "gulp-jshint": "^1.11.2",
-    "gulp-mocha": "^2.1.3",
-    "gulp-sourcemaps": "^1.5.2",
-    "jshint-stylish": "^2.0.1",
-    "mocha": "^2.3.2",
-    "node-xml-lite": "0.0.5",
-    "run-sequence": "^1.1.3",
-    "sinon": "^1.16.1",
-    "sinon-chai": "^2.8.0"
-  },
-  "dependencies": {
-    "bluebird": "^2.10.2",
-    "body-parser": "^1.14.1",
-    "express": "^4.13.3",
-    "source-map-support": "^0.3.2",
-    "winston": "^1.0.2"
-  }
+	"name": "webClicker",
+	"version": "0.0.1",
+	"description": "A sample nodejs app for Bluemix",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "~4.13.3",
+		"cfenv": "~1.0.3",
+		"bcrypt-nodejs": "~0.0.3",
+	    "body-parser": "~1.14.1",
+	    "client-sessions": "~0.7.0",
+	    "connect-flash": "~0.1.1",
+	    "cookie-parser": "~1.4.0",
+	    "express-session": "~1.12.1",
+	    "jsonwebtoken": "~5.4.1",
+	    "mongoose": "~4.3.0",
+	    "nodemailer": "~1.10.0",
+	    "passport": "~0.3.2",
+	    "passport-local": "~1.0.0",
+	    "promise": "~7.0.4",
+	    "randomstring": "~1.1.3",
+	    "socket.io": "~1.3.7",
+	    "ejs": "~2.3.4",
+	    "connect": "~3.4.0",
+	    "angular": "~1.4.8",
+	    "bootstrap": "~3.3.6"
+	},
+	"repository": {},
+	"engines": {
+		"node": "0.12.x"
+	} 
 }
