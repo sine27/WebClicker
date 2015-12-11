@@ -1,6 +1,6 @@
 var angular = angular.module('index', []);
 
-angular.controller('loginController', function ($scope, $http, $window) {
+angular.controller('loginController', ['$scope', '$window', function ($scope, $http) {
 	userid = "";
     $scope.username = "";
 	$scope.password = "";
@@ -12,8 +12,13 @@ angular.controller('loginController', function ($scope, $http, $window) {
             })
         });
         $http.post("/local/login", data).success(function(data,status) {
+            if(status != 200 ){
+            	//error
+            	$window.alert("err");
+            }else{
             	//console.log("success");
-            $window.alert("success "+ data);
+            	$window.alert("success "+ data);
+            }
             /**var userid = user._id;
             console.log(status + " Success login");
             // get user profile
@@ -40,7 +45,7 @@ angular.controller('loginController', function ($scope, $http, $window) {
         	console.log(status + " Fail login");
         });
     }                   
-});
+}]);
 
 angular.controller('registerController', function ($scope, $http) {
 	$scope.user = { 
