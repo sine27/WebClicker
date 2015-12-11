@@ -31,9 +31,54 @@ Dillinger uses a number of open source projects to work properly:
 - profile (score recorder)
 
 ---
+### API
+```
+/register:
 
+method: post
+request body: email(required),password(required)
+detail: this url is used to register for the user, and to get the Access_Token
 
+/local/login:
 
+method: post
+request body: email(required),password(required)
+detail: this url is used to get Access_Token from the server
+
+/class:
+
+method: get
+request body: NULL
+detail: this url is used get all Classes
+
+method: post
+request body: title(required),detail(required),classtime
+detail: this url is used to post new class
+
+/event/:eventid:
+
+method: get
+request body: NULL
+detail: this url is used get class with token and class
+
+method: post
+request body: title,detail,classtime
+detail: this url is used to edit class with token and classid
+
+method: delete
+request body: NULL
+detail: this url is used to delete class with token and classid
+
+/profile
+
+method: get
+request body: NULL
+detail: get profile with token
+
+method: post
+request body: fullname, email, usertype(default : Strudent)
+detail: edit profile with token
+```
 
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
