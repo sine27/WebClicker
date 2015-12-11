@@ -1,4 +1,12 @@
-var angular = angular.module('index', []);
+function submitForm(form){
+    var url = "/local/login";
+    var formData = $(form).serializeArray();
+    $.post(url, formData).done(function (data) {
+        alert(data.Token);
+
+        document.cookie="Access_Token="+data.Token;
+    });
+}
 
 angular.controller('loginController', ['$scope', '$window', function ($scope, $http) {
 	userid = "";
@@ -34,6 +42,7 @@ angular.controller('loginController', ['$scope', '$window', function ($scope, $h
 			                    + "fullname=" + profile.fullname + "; "
 			                    + "email=" + profile.email + "; "
 			                    + "usertype=" + profile.usertype ;
+                                
 			    console.log(status + " Success load profile");
 			    $location.path("/homepage.html")
 

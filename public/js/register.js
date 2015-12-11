@@ -1,12 +1,12 @@
-function submitLogin(form){
-    var url = "/local/login";
+function submitRegister(form){
+    var url = "/register";
     var formData = $(form).serializeArray();
     $.post(url, formData).done(function (data) {
         document.cookie="Access_Token=" + data.Token;
 
         // get profile from server
         url = "/profile";
-        $.get(url).done(function (data) {
+        $.post(url).done(function (data) {
 
         	alert(data);
         	document.cookie = "userid=" + data.profile.userid ;
@@ -18,7 +18,7 @@ function submitLogin(form){
         }).fail(function() {
         	console.log("Get profile failed");
         });
-
+          
     }).fail(function(){
     	alert("Wrong Username or Password !");
     });

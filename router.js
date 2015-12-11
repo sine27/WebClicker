@@ -12,14 +12,12 @@ module.exports = function(app,passport){
       }else {
         if(user){
           makeToken.makeToken({'id' : user.id}).then(function(token) {
-            //res.status(200).send({'message' : 'OK', 'Access_Token' : token});
+            res.status(200).send({'message' : 'OK', 'Access_Token' : token});
             console.log("Token " + token);
-            res.status(200).send({'Token' : token});
-            //res.redirect('/homepage.html');
           }).catch(function(err) {
             console.log(err);
             console.log(500);
-            //res.status(500).send({'message' : 'Server err', 'err' : err});
+            res.status(500).send({'message' : 'Server err', 'err' : err});
           });
         }else {
           res.status(409).send(info);
@@ -46,7 +44,7 @@ module.exports = function(app,passport){
             //res.status(500).send({'message' : 'Server err', serr' : err});
           });
         }else {
-          res.send('<p>Wrong password or username!</p>');
+          res.status(401).send({'message' :  "wrong pw or username"});
           console.log(401);
         }
       }
@@ -59,7 +57,7 @@ module.exports = function(app,passport){
   app.delete('/class/:classid', middlewares.checkClassid , middlewares.deleteClass);
   app.get('/class/:classid', middlewares.checkClassid ,middlewares.getClass);
   app.post('/class/:classid', middlewares.checkClassid ,middlewares.editClass);
-  app.get('/profile', middlewares.getProfile);
+  app.get('/profile', middlewares.verifyToken, middlewares.getProfile);
   app.post('/profile', middlewares.editProfile);
   app.post('/findUser', middlewares.findUser);
   app.get('/getUserInformation/:userid',middlewares.getUserInformation);

@@ -15,10 +15,11 @@ var changePassword = require('./changePassword.js').changePassword;
 
 module.exports = {
   verifyToken : function(req,res,next) {
-    if(req.headers['x-access-token'] === undefined){
+    //console.log(req.cookies.Access_Token);
+    if(req.cookies.Access_Token === undefined){
       res.status(401).send({"message" : "need Token"});
     }else {
-      makeToken.checkToken(req.headers['x-access-token']).then(function(result) {
+      makeToken.checkToken(req.cookies.Access_Token).then(function(result) {
         req.userid = result.id;
         req.reJson = {};
         return next();

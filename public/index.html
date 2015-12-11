@@ -27,11 +27,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
-
-
-
-        <script type="text/javascript" src="./js/login_register.js"></script>
-
     </head>
     <body>
         <div class="container">
@@ -59,10 +54,9 @@
                                     <label for="loginkeeping">Keep me logged in</label>
                                 </p>
                                 <p class="login button">
-                                    <input type="submit" onclick="submitForm(this.form);return false;" value="Login" />
+                                    <input type="submit" onclick="submitLogin(this.form);return false;" value="Login" />
                                 </p>
-                                <script src="./js/login.js">
-                                </script>
+                                <script src="./js/login.js"></script>
                                 <p>
                                     Not a member yet ?
                                     <a href="#toregister" class="to_register">Join us</a>
@@ -71,11 +65,15 @@
                         </div>
 
                         <div id="register" class="animate form">
-                            <form method="post" action="register">
+                            <form>
                                 <h1> Sign up </h1>
                                 <p>
                                     <label for="usernamesignup" class="uname" data-icon="u">Your username</label>
                                     <input id="usernamesignup" name="username" required="required" type="text" placeholder="myusername" />
+                                </p>
+                                <p>
+                                    <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
+                                    <input id="emailsignup" name="email" required="required" type="email" placeholder="mymail@mail.com"/>
                                 </p>
                                 <p>
                                     <label for="emailsignup" class="youmail" data-icon="e" > Your email</label>
@@ -90,8 +88,9 @@
                                     <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p class="signin button">
-                                    <input type="submit" value="Sign up"/>
+                                    <input type="submit" onclick="submitRegister(this.form);return false;" value="Sign up"/>
                                 </p>
+                                <script src="./js/register.js"></script>
                                 <p>
                                     Already a member ?
                                     <a href="#tologin" class="to_register"> Go and log in </a>

@@ -5,7 +5,7 @@ module.exports = {
     Profile.findOne({'userid' : req.userid},function(err,profile) {
       if(err){
         console.log("Fail! Profile load");
-        // res.status(500).send(req.reJson);
+        res.status(500).send(req.reJson);
       }
       else {
         if(!profile){
@@ -18,12 +18,14 @@ module.exports = {
           newProfile.save(function(err,thisprofile) {
             console.log("Success! Profile load");
             console.log(thisprofile);
-            //res.status(200).send(req.reJson);
+            req.reJson['profile'] = thisprofile;
+            res.status(200).send(req.reJson);
           });
         }else {
           console.log("Success! Profile load");
           console.log(profile);
-          //res.status(200).send(req.reJson);
+          req.reJson['profile'] = profile;
+          res.status(200).send(req.reJson);
         }
       }
     });

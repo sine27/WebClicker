@@ -16,7 +16,7 @@ module.exports = {
           newProfile.usertype = req.body.usertype;
           newProfile.email = req.body.email;
           newProfile.save(function(err,thisprofile) {
-            req.reJson['message'] = 'OK!';
+            req.reJson['profile'] = thisprofile;
             res.status(200).send(req.reJson);
           });
         }else {
@@ -32,8 +32,8 @@ module.exports = {
           if(req.body.email != undefined){
             profile.email = req.body.email;
           }
-          profile.save(function(err) {
-            req.reJson['message'] = 'OK!';
+          profile.save(function(err,thisprofile) {
+            req.reJson['profile'] = thisprofile;
             res.status(200).send(req.reJson);
           });
         }
