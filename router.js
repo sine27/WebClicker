@@ -14,7 +14,8 @@ module.exports = function(app,passport){
           makeToken.makeToken({'id' : user.id}).then(function(token) {
             //res.status(200).send({'message' : 'OK', 'Access_Token' : token});
             console.log("Token " + token);
-            res.redirect('/homepage.html');
+            res.status(200).send({'Token' : token});
+            //res.redirect('/homepage.html');
           }).catch(function(err) {
             console.log(err);
             console.log(500);
@@ -37,8 +38,9 @@ module.exports = function(app,passport){
         if(user){
           makeToken.makeToken({'id' : user.id}).then(function(token) {
             //res.status(200).send({'message' : 'OK', 'Access_Token' : token});
-            res.redirect('/homepage.html');
+            //res.redirect('/homepage.html');
             console.log("Token " + token);
+            res.status(200).send({'Token' : token});
           }).catch(function(err) {
             console.log(err);
             //res.status(500).send({'message' : 'Server err', serr' : err});
