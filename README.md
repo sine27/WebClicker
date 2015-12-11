@@ -2,9 +2,9 @@
 
 It the a lab project for Purdue CS252
 
-- HTML app
-- Server (javascript, nodejs)
-- Database (mongo)
+  - HTML app
+  - Server (javascript, nodejs)
+  - Database (mongo)
 
 In this lab we implement a web application using HTML5 and cloud services. We implement an interactive application in the client using HTML5 and communicating to services in the cloud. For web services we user [Bluemix][df1] that is a  Cloud Foundry implementation. For the client side we be using HTML5.
 
@@ -83,16 +83,17 @@ detail: edit profile with token
 [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
 
 
-[git-repo-url]: <https://github.com/sine27/WebClicker>
-[john gruber]: <http://daringfireball.net>
-[@thomasfuchs]: <http://twitter.com/thomasfuchs>
-[webclicker]: <http://webclicker.mybluemix.net>
-[df1]: <http://www.ibm.com/cloud-computing/bluemix/>
-
-
-[node.js]: <http://nodejs.org>
-[Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-[jQuery]: <http://jquery.com>
-[express]: <http://expressjs.com>
-[AngularJS]: <http://angularjs.org>
-[mongodb]: <https://mongolab.com/welcome/>
+   [git-repo-url]: <https://github.com/sine27/WebClicker>
+   [john gruber]: <http://daringfireball.net>
+   [@thomasfuchs]: <http://twitter.com/thomasfuchs>
+   [webclicker]: <http://webclicker.mybluemix.net>
+   [df1]: <http://www.ibm.com/cloud-computing/bluemix/>
+   
+   
+   [node.js]: <http://nodejs.org>
+   [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
+   [jQuery]: <http://jquery.com>
+   [express]: <http://expressjs.com>
+   [AngularJS]: <http://angularjs.org>
+   [mongodb]: <https://mongolab.com/welcome/>
+   

@@ -11,7 +11,7 @@ module.exports = {
     newClass.save(function(err,s) {
       if(err){
         res.status(500).send(req.reJson);
-        console.log("500 Create Class Successful");
+        console.log("500 Create Class Failed");
       }else {
         //res.status(200).send(req.reJson);
         console.log("200 Create Class Successful");
