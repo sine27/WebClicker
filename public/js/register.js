@@ -3,7 +3,6 @@ function submitRegister(form){
     var formData = $(form).serializeArray();
     console.log(JSON.stringify(formData));
 
-    alert(formData.username);
     $.post(url, formData).done(function (data) {
         document.cookie="Access_Token=" + data.Token;
         // get profile from server
@@ -19,7 +18,7 @@ function submitRegister(form){
         });
           
     }).fail(function(){
-    	alert("Wrong Username or Password !");
+    	alert("User ALready Exist !");
     });
 }
 

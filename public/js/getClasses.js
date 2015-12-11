@@ -13,9 +13,6 @@ function getclasses(){
 
             var detailid = "class" + i + "detail";
             document.getElementById(detailid).innerHTML = class_i.detail;
-
-console.log(classid);
-
         };
 
     }).fail(function(){
