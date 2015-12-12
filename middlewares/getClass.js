@@ -2,7 +2,7 @@
 var Class = require('../mongo_modules/class.js');
 module.exports = {
   getAllClass : function(req,res,next) {
-    Class.find().sort({'classtime' : -1})
+    Class.find().sort({'classtime' : +1})
     .exec(function(err, classes) {
       if(err){
         req.reJson['err'] = err;

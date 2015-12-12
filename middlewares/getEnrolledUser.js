@@ -20,7 +20,7 @@ module.exports = {
         req.reJson['err'] = err;
         res.status(500).send(req.reJson);
       }else {
-        req.reJson['Classes'] = users;
+        req.reJson['Users'] = users;
         res.status(200).send(req.reJson);
       }
     });

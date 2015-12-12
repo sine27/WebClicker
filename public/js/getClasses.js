@@ -10,21 +10,11 @@ function getclasses(){
             var class_i = data.Classes.pop();
             classes.push(class_i);
 
-            /*
-            var classindex = "class" + i + "name";
-            document.getElementById(classindex).innerHTML = class_i.title;
-
-            var detailid = "class" + i + "detail";
-            document.getElementById(detailid).innerHTML = class_i.detail;
-
-            var classid = "class" + i + "id";
-            document.getElementById(classindex).innerHTML = class_i._id;
-            */
             var newItem = document.getElementById("classType" + i % 4).cloneNode(true);
             newItem.setAttribute("id", "classType" + (4 + i));
             newItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].innerHTML = class_i.title;
             newItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[3].innerHTML = class_i.detail;
-console.log(newItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].innerHTML);
+
             classNameDisplayBlock.appendChild(newItem);
         };
         console.log(classes);
