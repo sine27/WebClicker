@@ -16,8 +16,7 @@ module.exports = {
       }else {
         //res.status(200).send(req.reJson);
         console.log("200 Create Class Successful");
-        req.reJson['message'] = 'OK!';
-        res.status(200).send(req.reJson);
+        res.redirect('/homepage.html');
       }
     });
   }

@@ -25,7 +25,7 @@ function getClassInformation (classid) {
   $.get(url).done(function (data) {
     //alert(JSON.stringify(data));
 
-    document.getElementById('classheader').innerHTML = data.class.title + '<small> ' + data.class.detail + '</small>';   
+    document.getElementById('classheader').innerHTML = data.class.title + '<br><small><small>' + data.class.detail + '</small></small>';   
 
     if (getCookie_Classid('userid', 'No such user') == 'No such user') {
         var enrollblock = document.getElementById('xxxxxxx');
