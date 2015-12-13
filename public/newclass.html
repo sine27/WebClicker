@@ -56,7 +56,7 @@
 
 </head>
 
-<body>
+<body onload=getFullname()>
 
     <div id="wrapper">
 
@@ -89,7 +89,7 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li class="active">
+                    <li>
                         <a href="homepage.html"><i class="fa fa-fw fa-home"></i> Homepage</a>
                     </li>
                     <li>
@@ -98,7 +98,7 @@
                     <li>
                         <a href="myEnrolledClasses.html"><i class="fa fa-fw fa-bookmark"></i> Enrolled Classes</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="newclass.html"><i class="fa fa-fw fa-edit"></i> Add a new class</a>
                     </li>
                 </ul>
@@ -148,14 +148,18 @@
 
                             </div>
 
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <p type="submit" class="btn btn-default"><a href="./homepage.html">Submit</a></p>
+                            <script>
+                            function redirect() {
+                                window.location("./homepage.html");
+                            }
+                            </script>
                             <button type="reset" class="btn btn-default">Reset</button>  
-
                             <p>
 
                         </form>
 
-                        <p>Cancel the class? <a href="./homepage.html">Cancel</a>.</p>
+                        <p>Cancel the class? <a href="./homepage.html">Cancel</a></p>
 
                        
 
