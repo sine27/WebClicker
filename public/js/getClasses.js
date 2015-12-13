@@ -1,8 +1,9 @@
-//Change the class 
+//load class list 
 var classNameDisplayBlock = document.getElementById("classInformationDisplay");
 var classes = []
 function getclasses(){
     var url = "/class";
+
     $.get(url).done(function (data) {
         //alert(JSON.stringify(data));
         var length = data.Classes.length;
@@ -15,6 +16,11 @@ function getclasses(){
             newItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[1].innerHTML = class_i.title;
             newItem.childNodes[1].childNodes[1].childNodes[1].childNodes[3].childNodes[3].innerHTML = class_i.detail;
 
+            // set id for class page link(in order to change it in loadClassPage.js)
+            var classLinkScope = newItem.childNodes[1].childNodes[3];
+            classLinkScope.setAttribute('id', class_i._id);
+            //alert(classLinkScope.id);
+
             classNameDisplayBlock.appendChild(newItem);
         };
         console.log(classes);
@@ -25,8 +31,11 @@ function getclasses(){
         classNameDisplayBlock.removeChild(document.getElementById("classType3"));
 
     }).fail(function(){
-        alert("Wrong Username or Password !");
+        alert("Cannot load class!");
     });
 }
 
 getclasses();
+
+
+
