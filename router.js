@@ -18,6 +18,20 @@ module.exports = function(app,passport){
       }
     });
   });
+  app.get('/allclass/:classid', function(req, res, next) {
+    var Class = require('./mongo_modules/class.js');
+    Class.findOne({'_id' : req.params.classid}, function(err, thisclass) {
+      if(err){
+        req.reJson['err'] = err;
+        res.status(500).send(req.reJson);
+        console.log("500");
+      }else{
+        req.reJson = {};
+        req.reJson['class'] = thisclass;
+        res.status(200).send(req.reJson);
+      }
+    });
+  });
   app.post('/register',function(req,res,next) {
     passport.authenticate('local-signup',function(err,user,info) {
       if(err){
@@ -69,9 +83,9 @@ module.exports = function(app,passport){
   //app.get('/allclass', middlewares.getAllClass);
   // Get classes by date
   //app.post('/enrolleduser' , middlewares.getEnrolledUser);
-  app.delete('/class/:classid', middlewares.checkClassid , middlewares.deleteClass);
-  app.get('/class/:classid', middlewares.checkClassid ,middlewares.getClass);
-  app.post('/class/:classid', middlewares.checkClassid ,middlewares.editClass);
+  app.delete('/class/:classid', middlewares.verifyToken,  middlewares.checkClassid , middlewares.deleteClass);
+  //app.get('/class/:classid', middlewares.verifyToken,  middlewares.checkClassid ,middlewares.getClass);
+  app.post('/class/:classid', middlewares.verifyToken, middlewares.checkClassid ,middlewares.editClass);
   app.get('/profile', middlewares.verifyToken, middlewares.getProfile);
   app.post('/profile',  middlewares.verifyToken, middlewares.editProfile);
   app.post('/findUser', middlewares.findUser);

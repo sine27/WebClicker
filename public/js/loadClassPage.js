@@ -4,8 +4,8 @@
 
 function loadPageWithId(current) {
 	var classid = $(current).attr('id');
+	document.cookie = "classid=" + classid;
 	var newHref = "./classPage.html?id=" + classid;
-	$(current).attr('href', newHref);
-	
-	alert(classid);
+	$(current).attr('href', newHref);	
+	//alert(classid);
 }

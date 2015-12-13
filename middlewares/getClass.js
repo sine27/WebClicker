@@ -12,29 +12,5 @@ module.exports = {
         res.status(200).send(req.reJson);
       }
     });
-  },
-  getClass : function(req, res, next) {
-    Event.findOne({'_id' : req.params.classid}, function(err, thisclass) {
-      if(err){
-        req.reJson['message'] = 'something wrong when get data from database';
-        req.reJson['err'] = err;
-        res.status(500).send(req.reJson);
-      }else{
-        if(thisclass){
-          if(req.userid === thisclass.userid){
-            req.reJson['message'] = 'OK! Class followed';
-            req.reJson['class'] = thisevent;
-            res.status(200).send(req.reJson);
-          } else {
-            req.reJson['message'] = 'You have no right to do this';
-            res.status(403).send(req.reJson);
-          }
-        }else {
-          req.reJson['message'] = 'OK! Class followed';
-          req.reJson['class'] = thisevent;
-          res.status(200).send(req.reJson);
-        }
-      }
-    });
   }
 }
