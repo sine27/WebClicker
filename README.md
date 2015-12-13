@@ -26,6 +26,7 @@ Dillinger uses a number of open source projects to work properly:
 ### Todos
 
 - Access class page
+- Enrolled class page
 - Enable create class only for instructor type
 - Class page (load enrolled users, enable activate session)
 - delete: drop class & cancel class(remove class(remove all enrolled relation))

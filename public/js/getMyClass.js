@@ -32,6 +32,7 @@ function getmyclasses(){
 
     }).fail(function(){
         alert("Welcome to WebClicker! Please login");
+        window.location = "./index.html";
     });
 }
 
