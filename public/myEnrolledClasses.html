@@ -52,13 +52,8 @@
             var fullname = getCookie("fullname", "Not a user");
             document.getElementById("fullname").innerHTML = fullname;
             if (fullname == "Not a user") {
-                document.getElementById("fa fa-fw fa-power-off").innerHTML = "Login or Register";
+                window.location = "/index.html";
             }
-        }
-
-        function logout() {
-            document.cookie = '';
-            window.location = "/index.html";
         }
     </script>
 
@@ -97,7 +92,7 @@
                         
                         <li class="divider"></li>
                         <li>
-                            <a href="#" onclick="logout()"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                         </li>
                     </ul>
                 </li>
@@ -118,7 +113,6 @@
                         <a href="newclass.html"><i class="fa fa-fw fa-edit"></i> Add a new class</a>
                     </li>
                 </ul>
-                </ul>
             </div>
             <!-- /.navbar-collapse -->
         </nav>
@@ -131,11 +125,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1 class="page-header">
-                            Homepage <small>Class Overview</small>
+                            Enrolled Classes <small>Class Overview</small>
                         </h1>
                         <ol class="breadcrumb">
                             <li class="active">
-                                <i class="fa fa-home"></i> Homepage
+                                <i class="fa fa-bookmark"></i> Enrolled Classes
                             </li>
                         </ol>
                     </div>

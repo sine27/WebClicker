@@ -2,7 +2,8 @@
 var makeToken = require('./maketoken.js');
 var thisPostClass = require('./postClass.js').postClass;
 var thisdeleteClass = require('./deleteClass.js').deleteClass;
-var thisgetClass = require('./getClass.js').getAllClass;
+//var thisgetAllClass = require('./getAllClass.js').getAllClass;
+var thisgetEnrolledClass = require('./getClass.js').getClassByUser;
 var thisGetClassByDate = require('./getClass.js').getClassByDate;
 var thiseditClass = require('./editClass.js').editClass;
 var thisgetProfile = require('./getProfile.js').getProfile;
@@ -31,7 +32,8 @@ module.exports = {
   },
   postClass : thisPostClass,
   deleteClass : thisdeleteClass,
-  getClass : thisgetClass,
+  //getAllClass : thisgetAllClass,
+  getClass : thisgetEnrolledClass,
   editClass : thiseditClass,
   getProfile : thisgetProfile,
   editProfile : thiseditProfile,

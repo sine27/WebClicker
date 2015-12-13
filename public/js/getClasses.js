@@ -2,7 +2,7 @@
 var classNameDisplayBlock = document.getElementById("classInformationDisplay");
 var classes = []
 function getclasses(){
-    var url = "/class";
+    var url = "/allclass";
 
     $.get(url).done(function (data) {
         //alert(JSON.stringify(data));

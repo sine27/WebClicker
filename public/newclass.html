@@ -30,6 +30,30 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 
+        <script>
+        function getCookie(cname, nullValue){
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) {
+                    if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+                }
+            }
+            return nullValue;
+        }
+
+        // load username
+        function getFullname() {
+            var fullname = getCookie("fullname", "Not a user");
+            document.getElementById("fullname").innerHTML = fullname;
+            if (fullname == "Not a user") {
+                window.location = "/index.html";
+            }
+        }
+    </script>
+
 </head>
 
 <body>
@@ -65,15 +89,18 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="homepage.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
-                    
                     <li class="active">
+                        <a href="homepage.html"><i class="fa fa-fw fa-home"></i> Homepage</a>
+                    </li>
+                    <li>
+                        <a href="myClasses.html"><i class="fa fa-fw fa-bars"></i> My Classes</a>
+                    </li>
+                    <li>
+                        <a href="myEnrolledClasses.html"><i class="fa fa-fw fa-bookmark"></i> Enrolled Classes</a>
+                    </li>
+                    <li>
                         <a href="newclass.html"><i class="fa fa-fw fa-edit"></i> Add a new class</a>
                     </li>
-                    
-                       
                 </ul>
             </div>
             <!-- /.navbar-collapse -->

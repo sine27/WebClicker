@@ -8,16 +8,17 @@ module.exports = {
     newClass.title = req.body.title;
     newClass.detail = req.body.detail;
     newClass.classtime = req.body.classtime;
-    newClass.save(function(err,s) {
+    newClass.save(function(err) {
       if(err){
+        req.reJson['err'] = err;
         res.status(500).send(req.reJson);
         console.log("500 Create Class Failed");
       }else {
         //res.status(200).send(req.reJson);
         console.log("200 Create Class Successful");
-        res.redirect('/homepage.html');
+        req.reJson['message'] = 'OK!';
+        res.status(200).send(req.reJson);
       }
     });
-
   }
 }

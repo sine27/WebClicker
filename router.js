@@ -3,6 +3,21 @@ var makeToken = require('./middlewares/maketoken.js');
 var middlewares = require('./middlewares/middlewares.js');
 
 module.exports = function(app,passport){
+  app.get('/allclass', function(req,res,next) {
+    var Class = require('./mongo_modules/class.js');
+    Class.find().sort({'classtime' : -1})
+    .exec(function(err, classes) {
+      if(err){
+        req.reJson['err'] = err;
+        res.status(500).send(req.reJson);
+      }else {
+        //console.log(classes);
+        req.reJson = {};
+        req.reJson['Classes'] = classes;
+        res.status(200).send(req.reJson);
+      }
+    });
+  });
   app.post('/register',function(req,res,next) {
     passport.authenticate('local-signup',function(err,user,info) {
       if(err){
@@ -49,10 +64,11 @@ module.exports = function(app,passport){
       }
     })(req,res,next);
   });
-  app.post('/class', middlewares.postClass);
+  app.post('/class', middlewares.verifyToken, middlewares.postClass);
   app.get('/class', middlewares.verifyToken,  middlewares.getClass);
+  //app.get('/allclass', middlewares.getAllClass);
   // Get classes by date
-  app.post('/classd' , middlewares.getClassByDate);
+  //app.post('/enrolleduser' , middlewares.getEnrolledUser);
   app.delete('/class/:classid', middlewares.checkClassid , middlewares.deleteClass);
   app.get('/class/:classid', middlewares.checkClassid ,middlewares.getClass);
   app.post('/class/:classid', middlewares.checkClassid ,middlewares.editClass);
